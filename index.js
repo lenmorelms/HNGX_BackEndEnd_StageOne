@@ -18,8 +18,8 @@ app.get('/api?', async (req, res) =>{
         "current_day": dayOfWeek,
         "utc_time": utc,
         "track": track,
-        "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-        "github_repo_url": "https://github.com/username/repo",
+        "github_file_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne/blob/main/index.js",
+        "github_repo_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne",
         "status_code": 200
       })
 });
