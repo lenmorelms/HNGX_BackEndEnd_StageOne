@@ -16,7 +16,7 @@ app.get('/api?', async (req, res) =>{
     res.status(200).json({
         "slack_name": slackName,
         "current_day": dayOfWeek,
-        "utc_time": utc,
+        "utc_time": utc.toISOString().split('.')[0] + 'Z',
         "track": track,
         "github_file_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne/blob/main/index.js",
         "github_repo_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne",
