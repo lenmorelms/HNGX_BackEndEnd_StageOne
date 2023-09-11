@@ -1,14 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
+import { format } from 'date-fns';
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 
 // UTC AND CURRENT DAY OF THE WEEK
-var utc = new Date();
+var date = new Date();
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var dayOfWeek = weekdays[utc.getDay()];
+var dayOfWeek = weekdays[date.getDay()];
 
 app.get('/api?', async (req, res) =>{
     const slackName = req.query.slack_name;
@@ -16,7 +17,8 @@ app.get('/api?', async (req, res) =>{
     res.status(200).json({
         "slack_name": slackName,
         "current_day": dayOfWeek,
-        "utc_time": utc.toISOString().split('.')[0] + 'Z',
+        // "utc_time": date.toISOString().split('.')[0] + 'Z',
+        "utc_time": format(new Date(), "yyyy-MM-dd'T'HH:mm:ss") + 'Z',
         "track": track,
         "github_file_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne/blob/main/index.js",
         "github_repo_url": "https://github.com/lenmorelms/HNGX_BackEndEnd_StageOne",
